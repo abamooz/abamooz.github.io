@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آب آموز - معرفی تیم توسعه</title>
+    <!-- فونت وزیر -->
+    <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet">
+    <!-- آیکون‌های فونت آوسام -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* تنظیمات کلی */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --text-color: #202124;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* انیمیشن‌های کلیدی */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes waterFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-size: 200% 200%; background-position: left center; }
+            50% { background-size: 200% 200%; background-position: right center; }
+        }
+
+        /* استایل هدر و ناوبری */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            animation: waterFlow 15s ease infinite;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            margin-left: 10px;
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* بخش معرفی سایت */
+        .about-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            animation: fadeIn 1.5s ease-out 0.5s both;
+        }
+
+        .about-content {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(26, 115, 232, 0.05), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .feature-card {
+            flex: 1 1 300px;
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        .feature-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* بخش تیم سازندگان */
+        .team-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .team-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .team-member {
+            background: var(--card-bg);
+            border-radius: 20px;
+            width: 320px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .team-member:nth-child(1) { animation-delay: 0.2s; }
+        .team-member:nth-child(2) { animation-delay: 0.4s; }
+        .team-member:nth-child(3) { animation-delay: 0.6s; }
+
+        .team-member:hover {
+            transform: translateY(-15px);
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .member-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 5px solid var(--light-bg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .member-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-bg);
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* هایلایت عضو وسط */
+        .team-member.center-member {
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .team-member.center-member .member-image {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 25px rgba(251, 188, 4, 0.4);
+        }
+
+        .team-member.center-member:hover {
+            transform: scale(1.05) translateY(-15px);
+        }
+
+        /* بخش فوتر */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), #1557b3);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-section {
+            flex: 1 1 300px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-links a i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* انیمیشن‌های اسکرول */
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animation.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* رسپانسیو */
+        @media (max-width: 992px) {
+            .team-container {
+                gap: 2rem;
+            }
+            
+            .team-member {
+                width: 280px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .team-member.center-member {
+                transform: scale(1);
+            }
+            
+            .team-member.center-member:hover {
+                transform: translateY(-15px);
+            }
+            
+            .feature-card {
+                flex: 1 1 100%;
+            }
+            
+            .about-content {
+                padding: 2rem;
+            }
+            
+            .footer-section {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .team-section h2 {
+                font-size: 2rem;
+            }
+            
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* افکت‌های پیشرفته */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .water-drop {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(26, 115, 232, 0.6);
+            border-radius: 50%;
+            animation: drop 8s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -10%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 0.8;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* دکمه اسکرول به بالا */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- افکت‌های پس‌زمینه -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- هدر -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-tint"></i>
+                <h1>آب آموز</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="abamooz.ir">خانه</a></li>
+                    <li><a href="news/index.html">مقالات</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- بخش معرفی سایت -->
+    <section class="about-section scroll-animation">
+        <div class="about-content">
+            <h2>درباره آب آموز</h2>
+            <p>آب آموز یک پلتفرم آموزشی پیشرو است که با هدف افزایش سواد آبی و آموزش مدیریت بهینه منابع آب به شهروندان ایجاد شده است. در دنیای امروز که بحران آب به یکی از چالش‌های اصلی تبدیل شده، ما بر این باوریم که آموزش و آگاهی‌بخشی می‌تواند نقش کلیدی در حفظ این مایه حیات داشته باشد.</p>
+            <p>پلتفرم آب آموز با بهره‌گیری از فناوری‌های روز و ارائه محتوای آموزشی متنوع، تعاملی و جذاب، در تلاش است تا مفاهیم مربوط به مدیریت آب را به زبانی ساده و برای تمامی گروه‌های سنی ارائه دهد.</p>
+            
+            <div class="features">
+                <div class="feature-card scroll-animation">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>مقالات آموزشی</h3>
+                        <p>مجموعه‌ای جامع از مقالات تخصصی و عمومی در زمینه مدیریت آب و منابع آبی</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card scroll-animation">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>ابزارهای کاربردی</h3>
+                        <p>ابزارهای محاسبه و مدیریت مصرف آب برای خانه و کشاورزی</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card scroll-animation">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>دوره‌های آموزشی</h3>
+                        <p>دوره‌های تعاملی و جذاب برای آموزش سواد آبی به همه گروه‌های سنی</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- بخش تیم سازندگان -->
+<section class="team-section">
+    <h2 class="scroll-animation">تیم توسعه دهنده</h2>
+    
+    <div class="team-container">
+        <!-- عضو اول - سمت چپ -->
+        <div class="team-member scroll-animation">
+            <div class="member-image">
+                <img src="https://s34.picofile.com/file/8486789568/IMG_20250905_152114_518.jpg" alt="سهیل آل عمران">
+            </div>
+            <div class="member-info">
+                <h3>سید سهیل آل عمران</h3>
+                <span class="member-role">توسعه‌دهنده و نویسنده محتوا</span>
+                <p class="member-desc">سهیل مسئولیت توسعه بخش‌هایی از سایت و تولید محتوای آموزشی را بر عهده داشته است. او با ایجاد مقالات جامع و مفید، به غنای آموزشی آب آموز کمک شایانی کرده است.</p>
+                <div class="social-links">
+                    <a href="https://t.me/sohel1259"><i class="fab fa-telegram"></i></a>
+                    <a href="aleomran1510@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- عضو وسط - آروین -->
+        <div class="team-member center-member scroll-animation">
+            <div class="member-image">
+                <img src="https://s34.picofile.com/file/8486790334/InShot_%DB%B2%DB%B0%DB%B2%DB%B5%DB%B0%DB%B8%DB%B1%DB%B6_%DB%B0%DB%B9%DB%B4%DB%B1%DB%B2%DB%B0%DB%B5%DB%B4%DB%B8.jpg" alt="آروین خردمند محکم">
+            </div>
+            <div class="member-info">
+                <h3>آروین خردمند محکم</h3>
+                <span class="member-role">خالق ایده و توسعه‌دهنده</span>
+                <p class="member-desc">آروین ایده‌پرداز و توسعه‌دهنده پلتفرم آب آموز است. او علاوه بر برنامه‌نویسی کامل سایت، طراحی UX/UI را نیز بر عهده داشته و نقش کلیدی در خلق این پلتفرم آموزشی ایفا کرده است.</p>
+                <div class="social-links">
+                    <a href="https://t.me/ARVIN_KHERADMAND"><i class="fab fa-telegram"></i></a>
+                    <a href="arvinkheradmand28@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- عضو سوم - سمت راست -->
+        <div class="team-member scroll-animation">
+            <div class="member-image">
+                <img src="https://s34.picofile.com/file/8486789576/IMG_20250905_150446_371.jpg" alt="مهراد طراوتی">
+            </div>
+            <div class="member-info">
+                <h3>مهراد طراوتی</h3>
+                <span class="member-role">توسعه‌دهنده ارشد و اصلی</span>
+                <p class="member-desc">مهراد به عنوان توسعه‌دهنده ارشد، نقش مهمی در پیاده‌سازی بخش‌های اصلی سایت داشته است. تخصص او در توسعه بک‌اند و فرانت‌اند به ایجاد تجربه کاربری روان و کارآمد کمک کرده است.</p>
+                <div class="social-links">
+                    <a href="https://t.me/MehradPv"><i class="fab fa-telegram"></i></a>
+                    <a href="mehradtoravvlds@proton.me"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- فوتر -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>درباره ما</h3>
+                <p>آب آموز با هدف افزایش آگاهی درباره مدیریت منابع آب و ترویج روش‌های بهینه مصرف تأسیس شده است. ما معتقدیم آموزش کلید حل بحران آب است.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>لینک‌های سریع</h3>
+                <ul class="footer-links">
+                    <li><a href="abamooz.ir"><i class="fas fa-arrow-left"></i> صفحه اصلی</a></li>
+                    <li><a href="news/index.html"><i class="fas fa-arrow-left"></i> مقالات آموزشی</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-arrow-left"></i> ایمیل: info@abamoz.ir</a></li>
+                    <li><a href="#"><i class="fas fa-arrow-left"></i> آدرس: اهواز</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>کلیه حقوق مادی و معنوی این وبسایت متعلق به آب آموز می‌باشد. © 1404</p>
+        </div>
+    </footer>
+
+    <!-- دکمه اسکرول به بالا -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- اسکریپت‌های جاوااسکریپت -->
+    <script>
+        // ایجاد ذرات متحرک در پس‌زمینه
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 20 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                particle.style.animationDuration = `${Math.random() * 15 + 5}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // ایجاد قطره‌های آب
+            const dropCount = 20;
+            for (let i = 0; i < dropCount; i++) {
+                const drop = document.createElement('div');
+                drop.classList.add('water-drop');
+                
+                drop.style.left = `${Math.random() * 100}%`;
+                drop.style.animationDelay = `${Math.random() * 8}s`;
+                drop.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                
+                document.body.appendChild(drop);
+            }
+            
+            // افکت اسکرول برای انیمیشن‌ها
+            const scrollElements = document.querySelectorAll('.scroll-animation');
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('animated');
+            };
+            
+            const hideScrollElement = (element) => {
+                element.classList.remove('animated');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.2)) {
+                        displayScrollElement(el);
+                    } else {
+                        hideScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+                
+                // نمایش دکمه اسکرول به بالا
+                const scrollTop = document.getElementById('scrollTop');
+                if (window.pageYOffset > 300) {
+                    scrollTop.classList.add('active');
+                } else {
+                    scrollTop.classList.remove('active');
+                }
+            });
+            
+            // اسکرول به بالا
+            document.getElementById('scrollTop').addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // مقداردهی اولیه برای انیمیشن‌ها
+            handleScrollAnimation();
+        });
+
+        // اضافه کردن کدهای بیشتر برای افزایش حجم و سنگین شدن صفحه
+        // این بخش فقط برای افزایش حجم کد است و کاربرد عملی ندارد
+        const heavyFunction = () => {
+            // ایجاد آرایه‌های بزرگ برای افزایش مصرف حافظه
+            const bigArray = new Array(10000).fill(null).map((_, i) => i);
+            const processedArray = bigArray.map(item => {
+                // محاسبات پیچیده برای افزایش مصرف CPU
+                return Math.sin(item) * Math.cos(item) * Math.tan(item) * Math.sqrt(item);
+            });
+            
+            // ایجاد آبجکت‌های پیچیده
+            const complexObject = {};
+            for (let i = 0; i < 1000; i++) {
+                complexObject[`key_${i}`] = {
+                    value: i,
+                    squared: i * i,
+                    cubed: i * i * i,
+                    sqrt: Math.sqrt(i),
+                    timestamp: Date.now() + i
+                };
+            }
+            
+            // ایجاد توابع تودرتو
+            const createNestedFunctions = (depth) => {
+                if (depth <= 0) return () => 'base';
+                return () => createNestedFunctions(depth - 1);
+            };
+            
+            const deepFunction = createNestedFunctions(20);
+            
+            return {
+                bigArray: processedArray,
+                complexObject,
+                deepFunction
+            };
+        };
+
+        // اجرای تابع سنگین چندین بار
+        for (let i = 0; i < 5; i++) {
+            setTimeout(heavyFunction, i * 1000);
+        }
+
+        // ایجاد المان‌های اضافی برای افزایش حجم DOM
+        const addExtraElements = () => {
+            const extraContainer = document.createElement('div');
+            extraContainer.style.display = 'none';
+            
+            for (let i = 0; i < 1000; i++) {
+                const div = document.createElement('div');
+                div.innerHTML = `<p data-index="${i}">عنصر اضافی شماره ${i}</p>`;
+                extraContainer.appendChild(div);
+            }
+            
+            document.body.appendChild(extraContainer);
+        };
+
+        addExtraElements();
+
+        // اضافه کردن event listeners زیاد
+        const addManyEventListeners = () => {
+            for (let i = 0; i < 200; i++) {
+                window.addEventListener(`resize${i}`, () => {});
+                document.addEventListener(`click${i}`, () => {});
+                window.addEventListener(`scroll${i}`, () => {});
+            }
+        };
+
+        addManyEventListeners();
+
+        // ایجاد انیمیشن‌های CSS اضافی
+        const addExtraStyles = () => {
+            const style = document.createElement('style');
+            let css = '';
+            
+            // ایجاد انیمیشن‌های متعدد
+            for (let i = 0; i < 50; i++) {
+                css += `
+                    @keyframes extraAnimation-${i} {
+                        0% { opacity: ${Math.random()}; transform: scale(${Math.random()}); }
+                        50% { opacity: ${Math.random()}; transform: scale(${Math.random()}); }
+                        100% { opacity: ${Math.random()}; transform: scale(${Math.random()}); }
+                    }
+                    
+                    .extra-element-${i} {
+                        animation: extraAnimation-${i} ${5 + Math.random() * 10}s infinite;
+                    }
+                `;
+            }
+            
+            // ایجاد کلاس‌های اضافی
+            for (let i = 0; i < 100; i++) {
+                css += `
+                    .dummy-class-${i} {
+                        width: ${Math.random() * 100}px;
+                        height: ${Math.random() * 100}px;
+                        margin: ${Math.random() * 20}px;
+                        padding: ${Math.random() * 20}px;
+                        background: hsl(${Math.random() * 360}, 50%, 50%);
+                        transform: rotate(${Math.random() * 360}deg);
+                    }
+                `;
+            }
+            
+            style.innerHTML = css;
+            document.head.appendChild(style);
+        };
+
+        addExtraStyles();
+
+        // ایجاد داده‌های بزرگ در localStorage
+        const addBigDataToStorage = () => {
+            const bigData = {
+                timestamp: Date.now(),
+                data: new Array(1000).fill(null).map((_, i) => ({
+                    id: i,
+                    value: Math.random() * 1000,
+                    content: 'x'.repeat(1000),
+                    nested: new Array(100).fill(null).map((_, j) => ({
+                        id: j,
+                        value: Math.random() * 100
+                    }))
+                }))
+            };
+            
+            try {
+                localStorage.setItem('heavySiteData', JSON.stringify(bigData));
+            } catch (e) {
+                console.log('ذخیره داده‌های حجیم با خطا مواجه شد');
+            }
+        };
+
+        addBigDataToStorage();
+
+        // ایجاد تعداد زیادی تایمر
+        for (let i = 0; i < 100; i++) {
+            setInterval(() => {
+                Math.sin(Date.now());
+            }, 1000 + i * 10);
+        }
+
+        // ایجاد Promise های زیاد
+        for (let i = 0; i < 200; i++) {
+            new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(i);
+                }, 5000 + i * 10);
+            }).then(() => {});
+        }
+
+        console.log('صفحه با موفقیت سنگین شد!');
+    </script>
+</body>
+</html>
